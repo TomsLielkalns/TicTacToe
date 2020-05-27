@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,7 +31,7 @@ namespace TicTacToe
         {
             InitializeCell();
             turnCount = 0;
-            xPlayerTurn = true;
+            xPlayerTurn = false;
         }
 
         private void InitializeCell()
@@ -62,7 +63,7 @@ namespace TicTacToe
                 label.Text = "O";
             }
             turnCount++;
-            PlaySound();
+            PlayTurnSound();
             CheckForWin();
             CheckForDraw();
             xPlayerTurn = !xPlayerTurn;
@@ -127,9 +128,32 @@ namespace TicTacToe
             thirdLabel.BackColor = color;
         }
 
-        private void PlaySound()
+        private void PlayTurnSound()
         {
-            System.IO.Stream str = Properties.Resources.back_button_click;
+            if (xPlayerTurn == true)
+            {
+                System.IO.Stream str = Properties.Resources.o_turn;
+                System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
+                snd.Play();
+            }
+            else if (xPlayerTurn == false)
+            {
+                System.IO.Stream str = Properties.Resources.x_turn;
+                System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
+                snd.Play();
+            }
+        }
+
+        private void PlayVictorySound()
+        {
+            System.IO.Stream str = Properties.Resources.victory;
+            System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
+            snd.Play();
+        }
+
+        private void PlayDrawSound()
+        {
+            System.IO.Stream str = Properties.Resources.Bruh_Sound_Effect;
             System.Media.SoundPlayer snd = new System.Media.SoundPlayer(str);
             snd.Play();
         }
@@ -138,6 +162,7 @@ namespace TicTacToe
         {
             if(turnCount == 9)
             {
+                PlayDrawSound();
                 MessageBox.Show("Draw!");
                 RestartGame();
             }
@@ -155,6 +180,7 @@ namespace TicTacToe
                 winner = "O";
             }
             WinnerCellsChangeColor();
+            PlayVictorySound();
             MessageBox.Show(winner + " wins!");
             RestartGame();
         }

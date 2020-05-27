@@ -83,5 +83,26 @@
   <ItemGroup>
     <None Include="Resources\back-button-click.wav" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-off.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-on.mp3" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\back-button-hover.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-on.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check-off.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu-charts-click.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bruh Sound Effect #2.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
