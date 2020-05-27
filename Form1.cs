@@ -40,6 +40,7 @@ namespace TicTacToe
             {
                 labelName = "label" + i;
                 Grid.Controls[labelName].Text = string.Empty;
+                Grid.Controls[labelName].BackColor = Color.Transparent;
             }
         }
 
@@ -84,7 +85,7 @@ namespace TicTacToe
          private void WinnerCellsChangeColor()
         {
             if (label1.Text == label2.Text && label1.Text == label3.Text && label1.Text != string.Empty)
-                {
+            {
                 ChangeCellColors(label1, label2, label3, Color.Purple);
             }
             else if (label4.Text == label5.Text && label4.Text == label6.Text && label4.Text != string.Empty)
@@ -146,7 +147,7 @@ namespace TicTacToe
                 winner = "O";
             }
             WinnerCellsChangeColor();
-            //MessageBox.Show(winner + " wins!");
+            MessageBox.Show(winner + " wins!");
             RestartGame();
         }
     }
