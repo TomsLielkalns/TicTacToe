@@ -81,13 +81,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\check-on.wav" />
+    <None Include="Resources\o_turn.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\check-off.wav" />
+    <None Include="Resources\x_turn.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\menu-charts-click.wav" />
+    <None Include="Resources\victory.wav" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Bruh_Sound_Effect.wav" />
