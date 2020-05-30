@@ -59,18 +59,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -79,18 +79,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\back-button-click.wav" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\check-off.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\check-on.mp3" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\back-button-hover.wav" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\check-on.wav" />
@@ -102,7 +90,127 @@
     <None Include="Resources\menu-charts-click.wav" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Bruh Sound Effect #2.wav" />
+    <None Include="Resources\Bruh_Sound_Effect.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o-frame-017.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o-frame-018.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o-frame-019.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o-frame-020.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-frame-001.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-frame-002.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-frame-003.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-frame-004.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-frame-005.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-frame-006.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-frame-007.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-frame-008.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-frame-009.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-frame-010.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-frame-011.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-frame-012.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-frame-013.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-frame-014.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-frame-015.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-frame-016.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-frame-017.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-frame-018.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-frame-019.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\x-frame-020.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o-frame-001.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o-frame-002.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o-frame-003.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o-frame-004.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o-frame-005.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o-frame-006.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o-frame-007.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o-frame-008.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o-frame-009.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o-frame-010.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o-frame-011.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o-frame-012.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o-frame-013.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o-frame-014.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o-frame-015.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\o-frame-016.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

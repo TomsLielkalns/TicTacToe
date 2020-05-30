@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,12 +15,16 @@ namespace TicTacToe
     {
         bool xPlayerTurn = true;
         int turnCount = 0;
+        int pictureCounter = 1;
+        PictureBox pic;
+
         public Form1()
         {
             InitializeComponent();
             InitializeGrid();
-            InitializeCell();
+            InitializeCells();
         }
+
         private void InitializeGrid()
         {
             Grid.BackColor = Color.LightCoral;
@@ -29,38 +33,46 @@ namespace TicTacToe
 
         private void RestartGame()
         {
-            InitializeCell();
+            InitializeCells();
             turnCount = 0;
             xPlayerTurn = false;
         }
 
-        private void InitializeCell()
+
+        private void InitializeCells()
         {
             string labelName;
             for (int i = 1; i <= 9; i++)
             {
                 labelName = "pictureBox" + i;
-                Grid.Controls[labelName].Tag = string.Empty;
-                Grid.Controls[labelName].BackColor = Color.Transparent;
+                PictureBox picture;
+                picture = (PictureBox)Grid.Controls[labelName];
+                picture.Tag = String.Empty;
+                picture.Image = null;
+                picture.BackColor = Color.Transparent;
             }
         }
 
-        private void Player_click(object sender, EventArgs e)
+        private void Player_Click(object sender, EventArgs e)
         {
-            PictureBox pic = (PictureBox)sender;
+            PictureBox picture = (PictureBox)sender;
 
-            if(pic.Tag != string.Empty)
+            if (picture.Tag != string.Empty)
             {
                 return;
             }
 
             if (xPlayerTurn)
             {
-                pic.Tag = "X";
+                picture.Tag = "X";
+                pic = picture;
+                animationTimer.Start();
             }
             else
             {
-                pic.Tag = "O";
+                picture.Tag = "O";
+                pic = picture;
+                animationTimer.Start();
             }
             turnCount++;
             PlayTurnSound();
@@ -69,22 +81,25 @@ namespace TicTacToe
             xPlayerTurn = !xPlayerTurn;
         }
 
+
         private void CheckForWin()
         {
-            if((pictureBox1.Tag == pictureBox2.Tag && pictureBox2.Tag == pictureBox3.Tag && pictureBox1.Tag != string.Empty) ||
-               (pictureBox4.Tag == pictureBox6.Tag && pictureBox5.Tag == pictureBox6.Tag && pictureBox4.Tag != string.Empty) ||
-               (pictureBox7.Tag == pictureBox8.Tag && pictureBox8.Tag == pictureBox9.Tag && pictureBox7.Tag != string.Empty) ||
-               (pictureBox1.Tag == pictureBox4.Tag && pictureBox4.Tag == pictureBox7.Tag && pictureBox1.Tag != string.Empty) ||
-               (pictureBox2.Tag == pictureBox5.Tag && pictureBox5.Tag == pictureBox8.Tag && pictureBox2.Tag != string.Empty) ||
-               (pictureBox3.Tag == pictureBox6.Tag && pictureBox6.Tag == pictureBox9.Tag && pictureBox3.Tag != string.Empty) ||
-               (pictureBox1.Tag == pictureBox5.Tag && pictureBox5.Tag == pictureBox9.Tag && pictureBox1.Tag != string.Empty) ||
-               (pictureBox3.Tag == pictureBox5.Tag && pictureBox5.Tag == pictureBox7.Tag && pictureBox3.Tag != string.Empty))
+            if (
+                    (pictureBox1.Tag == pictureBox2.Tag && pictureBox2.Tag == pictureBox3.Tag && pictureBox1.Tag != string.Empty) ||
+                    (pictureBox4.Tag == pictureBox5.Tag && pictureBox5.Tag == pictureBox6.Tag && pictureBox4.Tag != string.Empty) ||
+                    (pictureBox7.Tag == pictureBox8.Tag && pictureBox8.Tag == pictureBox9.Tag && pictureBox7.Tag != string.Empty) ||
+                    (pictureBox1.Tag == pictureBox4.Tag && pictureBox4.Tag == pictureBox7.Tag && pictureBox1.Tag != string.Empty) ||
+                    (pictureBox2.Tag == pictureBox5.Tag && pictureBox5.Tag == pictureBox8.Tag && pictureBox2.Tag != string.Empty) ||
+                    (pictureBox3.Tag == pictureBox6.Tag && pictureBox6.Tag == pictureBox9.Tag && pictureBox3.Tag != string.Empty) ||
+                    (pictureBox1.Tag == pictureBox5.Tag && pictureBox5.Tag == pictureBox9.Tag && pictureBox1.Tag != string.Empty) ||
+                    (pictureBox3.Tag == pictureBox5.Tag && pictureBox5.Tag == pictureBox7.Tag && pictureBox3.Tag != string.Empty)
+                )
             {
                 GameOver();
             }
         }
 
-         private void WinnerCellsChangeColor()
+        private void WinnerCellsChangeColor()
         {
             if (pictureBox1.Tag == pictureBox2.Tag && pictureBox1.Tag == pictureBox3.Tag && pictureBox1.Tag != string.Empty)
             {
@@ -118,8 +133,8 @@ namespace TicTacToe
             {
                 ChangeCellColors(pictureBox3, pictureBox5, pictureBox7, Color.Purple);
             }
-        }
 
+        }
         private void ChangeCellColors(PictureBox firstLabel, PictureBox secondLabel, PictureBox thirdLabel, Color color)
         {
             firstLabel.BackColor = color;
@@ -159,7 +174,7 @@ namespace TicTacToe
 
         private void CheckForDraw()
         {
-            if(turnCount == 9)
+            if (turnCount == 9)
             {
                 PlayDrawSound();
                 MessageBox.Show("Draw!");
@@ -182,6 +197,30 @@ namespace TicTacToe
             PlayVictorySound();
             MessageBox.Show(winner + " wins!");
             RestartGame();
+        }
+
+        private void Animate()
+        {
+            string turn;
+            string pictureName;
+
+            turn = pic.Tag.ToString();
+            turn = turn.ToLower();
+
+            pictureName = turn + "_frame_0" + pictureCounter.ToString("00");
+            pic.Image = (Image)Properties.Resources.ResourceManager.GetObject(pictureName);
+            pic.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureCounter += 1;
+            if (pictureCounter > 20)
+            {
+                pictureCounter = 1;
+                animationTimer.Stop();
+            }
+        }
+
+        private void AnimationTimer_Tick(object sender, EventArgs e)
+        {
+            Animate();
         }
     }
 }
